@@ -13,6 +13,10 @@ internal class FPIrExtension(
     moduleFragment: IrModuleFragment,
     pluginContext: IrPluginContext,
   ) {
-    moduleFragment.accept(FPIrVisitor(logger, loggingTag), null)
+    moduleFragment.transform(OverrideTransformer(pluginContext,logger),null)
+
+
   }
+
+
 }

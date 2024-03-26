@@ -4,7 +4,7 @@ plugins {
 }
 
 kotlin {
-  jvmToolchain(11)
+  jvmToolchain(17)
 }
 
 repositories {
@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-  compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.8.20")
+  compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.22")
   compileOnly("com.google.auto.service:auto-service-annotations:1.0.1")
   kapt("com.google.auto.service:auto-service:1.0.1")
 }

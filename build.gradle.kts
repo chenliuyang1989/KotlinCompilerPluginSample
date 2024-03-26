@@ -2,11 +2,11 @@ import org.jetbrains.kotlin.gradle.plugin.PLUGIN_CLASSPATH_CONFIGURATION_NAME
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  kotlin("jvm") version "1.8.20"
+  kotlin("jvm") version "1.9.20"
 }
 
 kotlin {
-  jvmToolchain(11)
+  jvmToolchain(17)
 }
 
 tasks.withType<KotlinCompile> {
@@ -19,10 +19,12 @@ tasks.withType<KotlinCompile> {
   }
 }
 
-repositories {
-  mavenCentral()
-}
 
 dependencies {
   PLUGIN_CLASSPATH_CONFIGURATION_NAME(project(":function-printer-plugin"))
 }
+
+repositories {
+  mavenCentral()
+}
+

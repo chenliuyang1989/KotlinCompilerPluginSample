@@ -16,6 +16,7 @@ import org.jetbrains.kotlin.ir.builders.irBlockBody
 import org.jetbrains.kotlin.ir.builders.irCall
 import org.jetbrains.kotlin.ir.builders.irString
 import org.jetbrains.kotlin.ir.declarations.IrClass
+import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.expressions.IrBlockBody
 import org.jetbrains.kotlin.ir.types.IrType
@@ -53,6 +54,9 @@ class OverrideTransformer(
     override fun visitClassNew(declaration: IrClass): IrStatement {
 
 
+
+          // override 方法时，需要先将原来的方法删除掉
+           declaration.declarations.removeIf { it is IrFunction && it.name.asString() == "printlnxxxx" }
 
         // this way to override function can not work
         val oneOverrideFunction =   declaration.addFunction("printlnxxxx",context.irBuiltIns.unitType,Modality.OPEN).apply {

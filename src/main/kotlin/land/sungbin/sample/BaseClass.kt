@@ -1,5 +1,6 @@
 package land.sungbin.sample
 
+
 /*
  * Author: Eric.chen$
  * Created: 2024/3/13$
@@ -8,7 +9,15 @@ package land.sungbin.sample
  */
 open class BaseClass {
 
-    open fun printlnxxxx(){
+
+
+    @PropertyChangeCallback(name="methodFromBaseClass")
+    fun methodFromBaseClass( p1:String):String{
+        return "";
+    }
+
+
+    open fun printlnxxxx(p:ParamObject?,context: Context?){
 
         println("this is base println from Base Class")
     }
